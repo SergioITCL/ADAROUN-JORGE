@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "itcl-quantizer-dev"
+version = "0.1.3"
+description = "Itcl Quantization Tool"
+authors = ["ITCL"]
+[tool.poetry.dependencies]
+python = "~3.10"
+tensorflow = "~2.9.0"
+
+matplotlib = "^3.5.2"
+scipy = "^1.8.1"
+seaborn = "^0.11.2"
+simanneal = "^0.5.0"
+itcl-quantization-toolkit = { path = "../../core/", develop = true }
+itcl-quantization-toolkit-inference-engine = {path = "../../inference_engine", develop = true}
+itcl-quantizer = {path = "..", develop = true}
+scikit-learn = "^1.1.1"
+numpy = "^1.23.1"
+pydantic = "^1.9.1"
+PyYAML = "^6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+black = "^22.6.0"
+ipykernel = "^6.15.1"
+
+[build-system]
+requires = ["poetry>=0.12", "wheel"]
+build-backend = "poetry.masonry.api"
+
+[tool.distutils.bdist_wheel]
+universal = true

@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "demo"
+version = "0.1.0"
+description = ""
+authors = ["Jorge Ruiz Gómez <jorge.ruiz@itcl.es>"]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+itcl-quantization-toolkit = {path = "../core", develop = true}
+itcl-quantization-toolkit-inference-engine = {path = "../inference_engine", develop = true}
+itcl-quantizer = {path="../quantizer", develop = true}
+itcl-tflite2json = {path = "../model_converters/tflite2json", develop = true}
+
+
+pandas = "^1.4.3"
+sklearn = "^0.0"
+matplotlib = "^3.5.2"
+seaborn = "^0.11.2"
+plotly = "^5.9.0"
+nbformat = "^5.4.0"
+
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+ipykernel = "^6.15.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

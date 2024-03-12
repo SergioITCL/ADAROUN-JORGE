@@ -1,0 +1,127 @@
+{
+  "engine": "tflite",
+  "generated_at": "2022-07-06 10:05:27.212891",
+  "ir_version": "0.1",
+  "operators": 3,
+  "graph": [
+    {
+      "description": "Input Node / Quantize Layer",
+      "inputs": [],
+      "outputs": [
+        {
+          "scale": 0.00392156862745098,
+          "zero_point": -128,
+          "LUT": null,
+          "tensor": {
+            "dtype": "int8",
+            "shape": [4],
+            "tensor": null,
+            "name": "Input Quant"
+          }
+        }
+      ],
+      "name": "QUANTIZE",
+      "op_type": "QUANTIZE"
+    },
+    {
+      "name": "fully_connected dense_3",
+      "description": "Fully Connected",
+      "op_type": "FULLY_CONNECTED",
+      "inputs": [
+        {
+          "scale": 0.00392156862745098,
+          "zero_point": -128,
+          "LUT": null,
+          "tensor": {
+            "dtype": "int8",
+            "shape": [4],
+            "tensor": null,
+            "name": "Input Quant"
+          }
+        },
+        {
+          "scale": 0.0512042946702852,
+          "zero_point": 0,
+          "tensor": {
+            "name": "dense_3/Kernel",
+            "dtype": "int8",
+            "shape": [3, 4],
+            "tensor": [
+              [-47, 82, -104, -127],
+              [15, -34, 6, -22],
+              [21, -31, 40, 34]
+            ]
+          },
+          "LUT": null
+        },
+        {
+          "scale": 0.00020080115556974588,
+          "zero_point": 0,
+          "tensor": {
+            "name": "dense_3/Bias",
+            "dtype": "int32",
+            "shape": [3],
+            "tensor": [12096, 4685, -11584]
+          },
+          "LUT": null
+        }
+      ],
+      "outputs": [
+        {
+          "scale": 0.05934233571968826,
+          "zero_point": 42,
+          "tensor": {
+            "name": "dense_3/BiasAdd",
+            "shape": [4],
+            "dtype": "int8",
+            "tensor": null
+          },
+          "LUT": null
+        }
+      ]
+    },
+    {
+      "name": "Dequantize Layer",
+      "op_type": "DEQUANTIZE",
+      "description": "Dequantize Layer",
+      "inputs": [
+        {
+          "scale": 0.05934233571968826,
+          "zero_point": 42,
+          "tensor": {
+            "name": "dense_3/BiasAdd",
+            "shape": [4],
+            "dtype": "int8",
+            "tensor": null
+          },
+          "LUT": null
+        }
+      ],
+      "outputs": []
+    }
+  ],
+  "input": [
+    {
+      "scale": null,
+      "zero_point": null,
+      "tensor": {
+        "shape": [1, 784],
+        "dtype": "FLOAT32",
+        "name": "dense_7_input",
+        "tensor": null
+      }
+    }
+  ],
+  "output": [
+    {
+      "scale": null,
+      "zero_point": null,
+      "tensor": {
+        "shape": [1, 10],
+        "dtype": "FLOAT32",
+        "name": "Identity",
+        "tensor": null
+      }
+    }
+  ]
+}
